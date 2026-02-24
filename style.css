@@ -1,9 +1,10 @@
 
 :root{
-  --bg-dark: #6c2517;   /* deep burnt orange */
-  --bg-mid:  #b65a38;   /* warm terracotta */
-  --bg-lite: #d78655;   /* softened apricot */
-  --bg-olive:#8e9556;   /* muted olive */
+  --bg-ember: #6a2416;   /* deep burnt */
+  --bg-warm:  #a64b2d;   /* warm terracotta */
+  --bg-olive: #7f8a4a;   /* muted olive */
+  --bg-green: #6f7f3f;   /* deeper green-olive */
+  --bg-moss:  #7f8f4c;   /* mossy lift */
 }
 
 body{
@@ -14,14 +15,15 @@ body{
   justify-content: space-between;
   align-items: center;
 
-  /* Warm, enveloping field: diagonal drift + very subtle vignette */
+  /* Warmer top-left, but greener overall (esp. mid + bottom) */
   background:
     radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.00) 62%),
     linear-gradient(135deg,
-      var(--bg-dark) 0%,
-      var(--bg-mid) 28%,
-      var(--bg-lite) 52%,
-      var(--bg-olive) 100%
+      var(--bg-ember) 0%,
+      var(--bg-warm) 20%,
+      var(--bg-olive) 45%,
+      var(--bg-moss) 70%,
+      var(--bg-green) 100%
     );
 
   background-attachment: fixed;
@@ -33,7 +35,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8vh 6vw 3vh 6vw; /* gallery offset */
+  padding: 8vh 6vw 3vh 6vw;
 }
 
 .cover{
@@ -41,9 +43,7 @@ body{
   max-height: 80vh;
   height: auto;
   width: auto;
-
-  /* almost imperceptible shadow: avoid "poster" look */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.16);
 }
 
 footer{
@@ -62,7 +62,6 @@ footer{
   color: rgba(255,255,255,0.52);
 }
 
-/* Mobile tuning */
 @media (max-width: 600px){
   .gallery-container{ padding: 8vh 7vw 2vh 7vw; }
   .cover{ max-width: 86vw; max-height: 78vh; }
