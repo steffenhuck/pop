@@ -1,11 +1,13 @@
 :root{
-  /* Warm-to-green palette (mature, desaturated) */
-  --ember:   #5d1f14;  /* deep warm anchor (top-left) */
-  --rust:    #7a3220;  /* restrained terracotta */
-  --ochre:   #8c5030;  /* warm bridge */
-  --olive:   #667038;  /* olive bridge */
-  --moss:    #4f612c;  /* mature moss */
-  --forest:  #2f3d1b;  /* nuclear: deep forest olive (far field) */
+  /* Muted ink-like spectrum (warm -> yellow -> green -> blue-violet) */
+  --amber:  #5b1f12;  /* dark amber/burnt */
+  --gold:   #8a4b22;  /* warm gold */
+  --wheat:  #b58a3b;  /* muted yellow */
+  --olive:  #6f7a3b;  /* mature olive */
+  --moss:   #4f612c;  /* deep moss */
+  --teal:   #2f4f4a;  /* muted blue-green */
+  --indigo: #2b2f4a;  /* blue-violet */
+  --violet: #2f2340;  /* deep violet */
 }
 
 body{
@@ -16,23 +18,20 @@ body{
   justify-content: space-between;
   align-items: center;
 
-  /*
-    Diagonal sweep that keeps moving on the right:
-    - final stop pushed far beyond 100% to avoid flat panels
-    - slightly stronger containment to give depth (not a vignette “effect”)
-  */
   background:
     radial-gradient(ellipse at 55% 45%,
-      rgba(0,0,0,0.18) 0%,
+      rgba(0,0,0,0.14) 0%,
       rgba(0,0,0,0.00) 66%
     ),
     linear-gradient(125deg,
-      var(--ember)   0%,
-      var(--rust)   15%,
-      var(--ochre)  30%,
-      var(--olive)  50%,
-      var(--moss)   76%,
-      var(--forest) 175%
+      var(--amber)  0%,
+      var(--gold)   18%,
+      var(--wheat)  34%,
+      var(--olive)  52%,
+      var(--moss)   68%,
+      var(--teal)   82%,
+      var(--indigo) 95%,
+      var(--violet) 140%
     );
 
   background-attachment: fixed;
@@ -44,8 +43,6 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* gallery offset */
   padding: 8vh 6vw 3vh 6vw;
 }
 
@@ -54,8 +51,6 @@ body{
   max-height: 80vh;
   height: auto;
   width: auto;
-
-  /* subtle shadow: avoid “poster” feel */
   box-shadow: 0 6px 18px rgba(0,0,0,0.16);
 }
 
@@ -75,7 +70,6 @@ footer{
   color: rgba(255,255,255,0.52);
 }
 
-/* Mobile tuning */
 @media (max-width: 600px){
   .gallery-container{ padding: 8vh 7vw 2vh 7vw; }
   .cover{ max-width: 86vw; max-height: 78vh; }
