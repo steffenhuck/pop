@@ -1,10 +1,10 @@
 
 :root{
-  --bg-ember: #6a2416;   /* deep burnt */
-  --bg-warm:  #a64b2d;   /* warm terracotta */
-  --bg-olive: #7f8a4a;   /* muted olive */
-  --bg-green: #6f7f3f;   /* deeper green-olive */
-  --bg-moss:  #7f8f4c;   /* mossy lift */
+  --brick: #6a2316;   /* small warmth anchor */
+  --warm:  #8a3a23;   /* restrained terracotta */
+  --olive: #7a8747;   /* olive */
+  --moss:  #6f8241;   /* greener moss */
+  --deep:  #61763a;   /* deep green-olive */
 }
 
 body{
@@ -15,15 +15,14 @@ body{
   justify-content: space-between;
   align-items: center;
 
-  /* Warmer top-left, but greener overall (esp. mid + bottom) */
   background:
-    radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.00) 62%),
+    radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.00) 62%),
     linear-gradient(135deg,
-      var(--bg-ember) 0%,
-      var(--bg-warm) 20%,
-      var(--bg-olive) 45%,
-      var(--bg-moss) 70%,
-      var(--bg-green) 100%
+      var(--brick) 0%,
+      var(--warm) 12%,
+      var(--olive) 38%,
+      var(--moss) 68%,
+      var(--deep) 100%
     );
 
   background-attachment: fixed;
