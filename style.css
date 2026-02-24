@@ -1,86 +1,50 @@
-/* POP — gallery plate */
 
-:root{
-  --bg1: #3b070f;   /* deep wine */
-  --bg2: #6a121d;   /* warmer red */
-  --glowA: rgba(235,120,70,0.28);  /* orange warmth */
-  --glowB: rgba(135,155,75,0.14);  /* muted green counter */
-  --ink: rgba(255,255,255,0.34);
-  --inkHover: rgba(255,255,255,0.55);
-}
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
-body{
-  margin:0;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:space-between;
+  background: linear-gradient(
+    to bottom,
+    #8e3b1f 0%,
+    #c96a3a 30%,
+    #9aa15c 100%
+  );
 
-  background-color: var(--bg1);
-  background-image:
-    radial-gradient(circle at 18% 20%, var(--glowA), transparent 58%),
-    radial-gradient(circle at 82% 78%, var(--glowB), transparent 62%),
-    radial-gradient(circle at 50% 55%, rgba(0,0,0,0.28), transparent 60%),
-    linear-gradient(135deg, var(--bg1), var(--bg2)),
-    /* micro-grain (very subtle) */
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.018) 0px,
-      rgba(255,255,255,0.018) 1px,
-      rgba(0,0,0,0.0) 2px,
-      rgba(0,0,0,0.0) 4px
-    );
-
-  background-attachment: fixed;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.gallery-container{
-  flex:1;
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  /* “gallery offset”: a little more air above than below */
-  padding: 10vh 6vw 3vh 6vw;
-  box-sizing:border-box;
+.gallery-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8vh 6vw 3vh 6vw;
 }
 
-.cover{
-  width:auto;
-  height:auto;
-  max-width:min(640px, 72vw);
-  max-height:80vh;
-
-  /* keep the object present, but don’t double-shadow the photo */
-  box-shadow: 0 14px 50px rgba(0,0,0,0.30);
+.cover {
+  max-width: 68vw;
+  max-height: 80vh;
+  height: auto;
+  width: auto;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
 }
 
-footer{
+footer {
   padding: 2.2rem 0 1.8rem 0;
 }
 
-.footer-name{
-  text-decoration:none;
-  font-size:0.82rem;
-  letter-spacing:0.18em;
-  color: var(--ink);
-  transition: color 0.35s ease;
+.footer-name {
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.35);
+  transition: color 0.3s ease;
 }
 
-.footer-name:hover{
-  color: var(--inkHover);
-}
-
-/* Small screens: keep it calm and centered */
-@media (max-width: 520px){
-  .gallery-container{
-    padding: 9vh 6vw 3vh 6vw;
-  }
-  .cover{
-    max-width: 84vw;
-    max-height: 76vh;
-  }
+.footer-name:hover {
+  color: rgba(255,255,255,0.55);
 }
