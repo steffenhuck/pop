@@ -1,10 +1,11 @@
-
 :root{
-  --brick: #6a2316;   /* small warmth anchor */
-  --warm:  #8a3a23;   /* restrained terracotta */
-  --olive: #7a8747;   /* olive */
-  --moss:  #6f8241;   /* greener moss */
-  --deep:  #61763a;   /* deep green-olive */
+  /* Warm-to-green palette (mature, slightly desaturated) */
+  --ember:   #5d1f14;  /* deep warm anchor (top-left) */
+  --rust:    #7a3220;  /* restrained terracotta */
+  --ochre:   #8c5030;  /* warm bridge */
+  --olive:   #727a3f;  /* olive bridge */
+  --moss:    #5f6f36;  /* mature moss */
+  --forest:  #4f612f;  /* deep green-olive (far field) */
 }
 
 body{
@@ -15,14 +16,24 @@ body{
   justify-content: space-between;
   align-items: center;
 
+  /*
+    Real diagonal sweep that doesn't "finish" too early:
+    - angle keeps it clearly diagonal
+    - last stops extend beyond 100% so the right side still has motion
+    - subtle containment keeps edges from feeling like flat panels
+  */
   background:
-    radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.00) 62%),
-    linear-gradient(135deg,
-      var(--brick) 0%,
-      var(--warm) 12%,
-      var(--olive) 38%,
-      var(--moss) 68%,
-      var(--deep) 100%
+    radial-gradient(ellipse at 55% 45%,
+      rgba(0,0,0,0.14) 0%,
+      rgba(0,0,0,0.00) 62%
+    ),
+    linear-gradient(125deg,
+      var(--ember)  0%,
+      var(--rust)   18%,
+      var(--ochre)  38%,
+      var(--olive)  58%,
+      var(--moss)   82%,
+      var(--forest) 135%
     );
 
   background-attachment: fixed;
@@ -34,6 +45,8 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* “gallery offset” */
   padding: 8vh 6vw 3vh 6vw;
 }
 
@@ -42,6 +55,8 @@ body{
   max-height: 80vh;
   height: auto;
   width: auto;
+
+  /* very light shadow: avoid “poster” feel */
   box-shadow: 0 6px 18px rgba(0,0,0,0.16);
 }
 
@@ -61,6 +76,7 @@ footer{
   color: rgba(255,255,255,0.52);
 }
 
+/* Mobile tuning */
 @media (max-width: 600px){
   .gallery-container{ padding: 8vh 7vw 2vh 7vw; }
   .cover{ max-width: 86vw; max-height: 78vh; }
