@@ -1,11 +1,11 @@
 :root{
-  /* Warm-to-green palette (mature, slightly desaturated) */
+  /* Warm-to-green palette (mature, desaturated) */
   --ember:   #5d1f14;  /* deep warm anchor (top-left) */
   --rust:    #7a3220;  /* restrained terracotta */
   --ochre:   #8c5030;  /* warm bridge */
-  --olive:   #727a3f;  /* olive bridge */
-  --moss:    #5f6f36;  /* mature moss */
-  --forest:  #4f612f;  /* deep green-olive (far field) */
+  --olive:   #667038;  /* olive bridge */
+  --moss:    #4f612c;  /* mature moss */
+  --forest:  #2f3d1b;  /* nuclear: deep forest olive (far field) */
 }
 
 body{
@@ -17,23 +17,22 @@ body{
   align-items: center;
 
   /*
-    Real diagonal sweep that doesn't "finish" too early:
-    - angle keeps it clearly diagonal
-    - last stops extend beyond 100% so the right side still has motion
-    - subtle containment keeps edges from feeling like flat panels
+    Diagonal sweep that keeps moving on the right:
+    - final stop pushed far beyond 100% to avoid flat panels
+    - slightly stronger containment to give depth (not a vignette “effect”)
   */
   background:
     radial-gradient(ellipse at 55% 45%,
-      rgba(0,0,0,0.14) 0%,
-      rgba(0,0,0,0.00) 62%
+      rgba(0,0,0,0.18) 0%,
+      rgba(0,0,0,0.00) 66%
     ),
     linear-gradient(125deg,
-      var(--ember)  0%,
-      var(--rust)   18%,
-      var(--ochre)  38%,
-      var(--olive)  58%,
-      var(--moss)   82%,
-      var(--forest) 135%
+      var(--ember)   0%,
+      var(--rust)   15%,
+      var(--ochre)  30%,
+      var(--olive)  50%,
+      var(--moss)   76%,
+      var(--forest) 175%
     );
 
   background-attachment: fixed;
@@ -46,7 +45,7 @@ body{
   justify-content: center;
   align-items: center;
 
-  /* “gallery offset” */
+  /* gallery offset */
   padding: 8vh 6vw 3vh 6vw;
 }
 
@@ -56,7 +55,7 @@ body{
   height: auto;
   width: auto;
 
-  /* very light shadow: avoid “poster” feel */
+  /* subtle shadow: avoid “poster” feel */
   box-shadow: 0 6px 18px rgba(0,0,0,0.16);
 }
 
