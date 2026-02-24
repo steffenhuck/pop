@@ -1,52 +1,86 @@
+/* POP — gallery plate */
 
-/* Energetic but restrained gallery background */
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+:root{
+  --bg1: #3b070f;   /* deep wine */
+  --bg2: #6a121d;   /* warmer red */
+  --glowA: rgba(235,120,70,0.28);  /* orange warmth */
+  --glowB: rgba(135,155,75,0.14);  /* muted green counter */
+  --ink: rgba(255,255,255,0.34);
+  --inkHover: rgba(255,255,255,0.55);
+}
 
-  background:
-    radial-gradient(circle at 18% 22%, rgba(230,120,70,0.18), transparent 60%),
-    radial-gradient(circle at 85% 80%, rgba(120,140,60,0.10), transparent 65%),
-    linear-gradient(135deg, #6f0f18, #8c1c22);
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+
+  background-color: var(--bg1);
+  background-image:
+    radial-gradient(circle at 18% 20%, var(--glowA), transparent 58%),
+    radial-gradient(circle at 82% 78%, var(--glowB), transparent 62%),
+    radial-gradient(circle at 50% 55%, rgba(0,0,0,0.28), transparent 60%),
+    linear-gradient(135deg, var(--bg1), var(--bg2)),
+    /* micro-grain (very subtle) */
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.018) 1px,
+      rgba(0,0,0,0.0) 2px,
+      rgba(0,0,0,0.0) 4px
+    );
 
   background-attachment: fixed;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Gallery positioning */
-.gallery-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8vh 6vw 3vh 6vw;
+.gallery-container{
+  flex:1;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  /* “gallery offset”: a little more air above than below */
+  padding: 10vh 6vw 3vh 6vw;
+  box-sizing:border-box;
 }
 
-.cover {
-  max-width: 72vw;
-  max-height: 82vh;
-  height: auto;
-  width: auto;
-  box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+.cover{
+  width:auto;
+  height:auto;
+  max-width:min(640px, 72vw);
+  max-height:80vh;
+
+  /* keep the object present, but don’t double-shadow the photo */
+  box-shadow: 0 14px 50px rgba(0,0,0,0.30);
 }
 
-/* Nearly invisible footer */
-footer {
+footer{
   padding: 2.2rem 0 1.8rem 0;
 }
 
-.footer-name {
-  text-decoration: none;
-  font-size: 0.82rem;
-  letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.32);
+.footer-name{
+  text-decoration:none;
+  font-size:0.82rem;
+  letter-spacing:0.18em;
+  color: var(--ink);
   transition: color 0.35s ease;
 }
 
-.footer-name:hover {
-  color: rgba(255,255,255,0.5);
+.footer-name:hover{
+  color: var(--inkHover);
+}
+
+/* Small screens: keep it calm and centered */
+@media (max-width: 520px){
+  .gallery-container{
+    padding: 9vh 6vw 3vh 6vw;
+  }
+  .cover{
+    max-width: 84vw;
+    max-height: 76vh;
+  }
 }
